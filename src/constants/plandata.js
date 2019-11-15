@@ -1,4 +1,4 @@
-export const plandata = [{
+const plandata = [{
   name:           'Free',
   price:          '0',
   servers:        '1',
@@ -70,3 +70,5 @@ export const plandata = [{
   inventory:      '10 days',
   analytics:      '1 month'
 }]
+
+export default plandata
