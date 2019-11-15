@@ -1,38 +1,46 @@
 import React from 'react'
 import styled from 'styled-components'
 
+import iconBlack from '../../images/icon-black.svg'
+
 const Container = styled.div`
   width: 100%;
-  height: calc(100vh - 200px);
+  height: calc(100vh - 270px);
   display: flex;
   align-items: center;
   justify-content: space-between;
 
-  &::after{
-    content: '';
-    position: absolute;
-    width: 500px;
-    height: 500px;
-    background-image: url('icon-black.svg');
-    opacity: 0.1;
-  }
 `
 
 const TextContainer = styled.div`
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   width: 50%;
   h1 {
     font-size: 1.5rem;
     margin-bottom: 50px;
     color: ${({ theme }) => theme.main};
+    font-weight: 500;
   }
   p{
     text-align: center;
     width: 50%;
   }
+
+  .icon{
+    position: absolute;
+    width: 250%;
+    height: 250%;
+    opacity: 0.05;
+    z-index: -1;
+  }
 `
 const Window = styled.div`
-  width: 675px;
-  height: 575px;
+  width: 600px;
+  height: 450px;
   background-color: ${({ theme }) => theme.shade};
   border-radius: 10px;
   padding: calc(25px - 15px) 25px calc(25px + 15px ) 25px;
@@ -61,6 +69,7 @@ export default function Landing(){
       <TextContainer>
         <h1>The best 7 days to Die server manager.</h1>
         <p>CSMM gives admins unprecedent control over 7 Days to Die and insight into users 7 days to Die servers. because csmm for 7 days to Die is highly customizable. You can make your server.</p>
+        <img alt="later nog aanpassen" className="icon" src={iconBlack}/>
       </TextContainer>
       <Window>
         <div className="circles"><div/><div/><div/></div>
