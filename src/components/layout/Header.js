@@ -5,7 +5,7 @@ import Link from './Link'
 import Button from './Button'
 import icon from '../../images/icon.svg'
 
-const Container = styled.div`
+const Container = styled.header`
   width: 100%;
   height: 110px;
   display: flex;
@@ -31,9 +31,13 @@ const Name = styled.div`
 const Nav = styled.nav`
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
   width: 40%;
   padding-right: 50px;
+
+  a{
+    margin-left: 35px;
+    margin-right: 35px;
+  }
 `
 
 export default function Header(){
