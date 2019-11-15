@@ -20,17 +20,21 @@ const Block = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: top;
 
   img{
-    width: auto;
-    height: 45px;
+    width: 45px;
+    height: auto;
   }
   h3{
     font-size: 1.2rem;
+    margin: 25px 0;
   }
   p{
     font-size: 1rem;
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
   }
 `
 
