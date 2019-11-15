@@ -20,7 +20,7 @@ const Name = styled.div`
   justify-content: flex-start;
   font-size: 1.4rem;
   font-weight: 500;
-  width: 60%;
+  width: 50%;
   padding-left: 150px;
   img{
     width: 35px;
@@ -31,12 +31,14 @@ const Name = styled.div`
 const Nav = styled.nav`
   display: flex;
   align-items: center;
-  width: 40%;
-  padding-right: 50px;
+  width: 50%;
 
   a{
-    margin-left: 35px;
-    margin-right: 35px;
+    margin-left: 70px;
+    margin-right: 70px;
+  }
+  button {
+    margin-left: 70px;
   }
 `
 
