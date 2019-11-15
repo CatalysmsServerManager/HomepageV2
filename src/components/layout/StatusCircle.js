@@ -2,9 +2,12 @@ import React from 'react'
 import styled from 'styled-components'
 
 const Circle = styled.div`
+  display: inline-block;
+  margin-right: 5px;
   width: 5px;
   height: 5px;
   border: 3px solid ${({ color }) => color};
+  border-radius: 50%;
 `
 
 export default function StatusCircle(){
