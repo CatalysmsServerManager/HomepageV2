@@ -13,6 +13,8 @@ const Container = styled.section`
   justify-content: space-evenly;
   width: 100%;
   height: 200px;
+  margin-top: 50px;
+  margin-bottom: 50px;
 `
 const Block = styled.div`
   width: 25%;
