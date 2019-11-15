@@ -6,6 +6,7 @@ import discord from '../../images/discord.svg'
 import mail from '../../images/mail.svg'
 
 const Container = styled.footer`
+  width: 100%;
   height: 145px;
   display: flex;
   flex-direction: column;
@@ -23,7 +24,6 @@ const LinkNav = styled.nav`
   display: flex;
   align-items: center;
   justify-content: center;
-
   a{
     margin-left: 10px;
     margin-right: 10px;
