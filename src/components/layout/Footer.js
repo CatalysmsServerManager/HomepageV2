@@ -9,9 +9,9 @@ const Container = styled.footer`
   width: 100%;
   height: 145px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
   padding: 0 50px;
   color: ${({ theme }) => theme.text};
 `
@@ -19,6 +19,9 @@ const IconNav = styled.nav`
   display: flex;
   align-items: center;
   justify-content: flex-start;
+  img{
+    width: 30px;
+  }
 `
 const LinkNav = styled.nav`
   display: flex;
@@ -38,7 +41,7 @@ export default function Footer(){
         <img alt="dit nog aanpassen" src={mail}/>
       </IconNav>
       <div>
-        <p>Copyright csmm © {Date.now().getFullYear()} | All rights reserved</p>
+        <p>Copyright csmm © {new Date().getFullYear()} | All rights reserved</p>
       </div>
       <LinkNav>
         <Link to="/terms">Terms of service</Link>

@@ -13,13 +13,22 @@ const StyledLink = styled(ReactRouterLink)`
     color: ${({ theme }) => lighten(0.2, theme.title)};
   }
 `
-export default function Link({ children, to }){
-  return (
-    <StyledLink to={to}>{children}</StyledLink>
-  )
+const StyledAnchor = styled.a`
+  color: ${({ theme }) => theme.title};
+  font-weight: 500;
+  transition: color .1s ease-in-out;
+
+  &:hover{
+    color: ${({ theme }) => lighten(0.2, theme.title)};
+  }
+`
+
+export default function Link({ children, isExternal = false, to }){
+  return isExternal ? <StyledLink to={to}>{children}</StyledLink> : <StyledAnchor href={to} target="_blank">{children}</StyledAnchor>
 }
 
 Link.propTypes = {
-  children: PropTypes.node.isRequired,
-  to:       PropTypes.string.isRequired
+  children:   PropTypes.node.isRequired,
+  isExternal: PropTypes.bool,
+  to:         PropTypes.string.isRequired
 }
