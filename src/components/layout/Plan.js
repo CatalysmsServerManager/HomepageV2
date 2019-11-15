@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import { lighten } from 'polished'
 
 import icon from '../../images/icon.svg'
 import Button from '../layout/Button'
@@ -10,7 +11,7 @@ const Container = styled.div`
   flex-direction: column;
   height: 650px;
   width: 400px;
-  border: 5px solid ${({ theme }) => theme.shade};
+  border: 5px solid ${({ theme, isPopular }) => isPopular ? lighten(0.65, theme.title) : theme.shade};
   border-radius: 20px;
 `
 const Name = styled.div`
@@ -36,7 +37,7 @@ const Price = styled.div`
   flex-direction: row;
   width: 100%;
   height: 130px;
-  background-color: ${({ theme }) => theme.shade};
+  background-color: ${({ theme, isPopular }) => isPopular ? theme.title : theme.shade};
   .symbol{
       position: relative;
       width: 40px;
@@ -45,14 +46,14 @@ const Price = styled.div`
         position: absolute;
         top: -20px;
         left: 10px;
-        color: ${({ theme }) => theme.main};
+        color: ${({ theme, isPopular }) => isPopular ? 'white' : theme.main};
         font-size: 1.5rem;
         font-weight: 400;
       }
   }
   .price{
     position: relative;
-    color: ${({ theme }) => theme.main};
+    color: ${({ theme, isPopular }) => isPopular ? 'white' : theme.main};
     font-size: 3.5rem;
     font-weight: 600;
     }
@@ -60,7 +61,8 @@ const Price = styled.div`
     font-size: 1.4rem;
     text-align: center;
     margin-left: 15px;
-    margin-right: 15px
+    margin-right: 15px;
+    color: ${({ theme, isPopular }) => isPopular ? 'white' : theme.text};
   }
 `
 const Details = styled.div`
@@ -89,11 +91,11 @@ const ButtonContainer = styled.div`
   }
 `
 
-export default function Plan({ name, price, servers, commands, jobs, notifications, teleports, location, inventory, analytics }){
+export default function Plan({ name, price, servers, commands, jobs, notifications, teleports, location, inventory, analytics, isPopular = false }){
   return (
-    <Container>
+    <Container isPopular={isPopular}>
       <Name><img alt="later nog aanpassen" src={icon}/><h2>{name}</h2></Name>
-      <Price>
+      <Price isPopular={isPopular}>
         <div className="symbol">
           <span>€</span>
         </div>
@@ -121,6 +123,7 @@ Plan.propTypes = {
   analytics:     PropTypes.string.isRequired,
   commands:      PropTypes.string.isRequired,
   inventory:     PropTypes.string.isRequired,
+  isPopular:     PropTypes.bool,
   jobs:          PropTypes.string.isRequired,
   location:      PropTypes.string.isRequired,
   name:          PropTypes.string.isRequired,
