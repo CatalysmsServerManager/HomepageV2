@@ -33,30 +33,36 @@ const Price = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: row;
   width: 100%;
   height: 130px;
   background-color: ${({ theme }) => theme.shade};
-
+  .symbol{
+      position: relative;
+      width: 40px;
+      height: 40px;
+      span{
+        position: absolute;
+        top: -20px;
+        left: 10px;
+        color: ${({ theme }) => theme.main};
+        font-size: 1.5rem;
+        font-weight: 400;
+      }
+  }
   .price{
     position: relative;
     color: ${({ theme }) => theme.main};
-    font-size: 5rem;
+    font-size: 3.5rem;
     font-weight: 600;
-    .symbol{
-      left: -24px;
-      position: absolute;
-      color: ${({ theme }) => theme.main};
-      font-size: 2rem;
-      font-weight: 400;
     }
-  }
-  p{
+  .month{
     font-size: 1.4rem;
-    width: 100%;
     text-align: center;
+    margin-left: 15px;
+    margin-right: 15px
   }
 `
-
 const Details = styled.div`
   display: flex;
   align-items: center;
@@ -64,7 +70,6 @@ const Details = styled.div`
   flex-direction: column;
   height: calc(100% - 215px);
   width: 100%;
-
   p{
     margin-top: 5px;
     margin-bottom: 5px;
@@ -79,7 +84,6 @@ const ButtonContainer = styled.div`
   align-items: center;
   justify-content: center;
   padding-bottom: 25px;
-
   button{
     font-size: 125%;
   }
@@ -90,12 +94,11 @@ export default function Plan({ name, price, servers, commands, jobs, notificatio
     <Container>
       <Name><img alt="later nog aanpassen" src={icon}/><h2>{name}</h2></Name>
       <Price>
-        <p>
-          <span className="price">
-            <span className="symbol">€</span>
-            {price}</span>
-          <span> / month</span>
-        </p>
+        <div className="symbol">
+          <span>€</span>
+        </div>
+        <div className="price">{price}</div>
+        <p className="month"> / month</p>
       </Price>
       <Details>
         <p>max servers: {servers}</p>
