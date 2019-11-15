@@ -24,7 +24,7 @@ const StyledAnchor = styled.a`
 `
 
 export default function Link({ children, isExternal = false, to }){
-  return isExternal ? <StyledLink to={to}>{children}</StyledLink> : <StyledAnchor href={to} target="_blank">{children}</StyledAnchor>
+  return isExternal ? <StyledLink to={to}>{children}</StyledLink> : <StyledAnchor href={to} rel="noopener noreferrer" target="_blank">{children}</StyledAnchor>
 }
 
 Link.propTypes = {
