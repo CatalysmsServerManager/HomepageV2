@@ -50,7 +50,7 @@ export default function Header(){
     <Container>
       <Name><img alt="change me later" src={icon}/><Link to="/"><h2>csmm</h2></Link></Name>
       <Nav>
-        <Link to="/status"> <StatusCircle/> Status</Link>
+        <Link isExternal to="https://status.csmm.app"> <StatusCircle/> Status</Link>
         <Link to="/pricing">Pricing</Link>
         <Link to="/contact">Contact</Link>
         <Button>Premium</Button>
