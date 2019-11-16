@@ -23,7 +23,7 @@ const IconNav = styled.nav`
   align-items: center;
   justify-content: flex-start;
   img{
-    width: 30px;
+    width: 25px;
     margin-left: 10px;
     margin-right: 10px;
   }
@@ -43,7 +43,7 @@ export default function Footer(){
   return (
     <Container>
       <IconNav>
-        <Link isExternal to="/something">
+        <Link isExternal to="/https://discordapp.com/invite/%45wy%44d%4E%41">
           <img alt="dit nog aanpassen" src={discord}/>
         </Link>
         <Link isExternal to="/something">
@@ -54,7 +54,7 @@ export default function Footer(){
         <p>Copyright csmm © {new Date().getFullYear()} | All rights reserved</p>
       </div>
       <LinkNav>
-        <Link to="/terms">Terms of service</Link>
+        <Link to="/termsofservice">Terms of service</Link>
         <Link isExternal to="https://docs.csmm.app/">Documentation</Link>
         <Link isExternal to="https://github.com/CatalysmsServerManager/7-days-to-die-server-manager">Source code</Link>
       </LinkNav>
