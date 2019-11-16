@@ -8,12 +8,11 @@ import mail from '../../images/mail.svg'
 
 const Container = styled.footer`
   width: 100%;
-  height: 100px;
+  height: 125px;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-evenly;
-  padding: 0 50px;
   color: ${({ theme }) => theme.text};
   background-color: #fafafa;
 `
@@ -22,7 +21,7 @@ const IconNav = styled.nav`
   height: 100%;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
   img{
     width: 25px;
     margin-left: 10px;
@@ -53,7 +52,7 @@ export default function Footer(){
         </Link>
       </IconNav>
       <div style={{ width: '33%' }}>
-        <p>Copyright csmm © {new Date().getFullYear()} | All rights reserved</p>
+        <p style={{ textAlign: 'center' }}>Copyright <strong>csmm</strong> © {new Date().getFullYear()} | All rights reserved</p>
       </div>
       <LinkNav>
         <Link to="/termsofservice">Terms of service</Link>
