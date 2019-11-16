@@ -27,8 +27,6 @@ export default function StatusCircle(){
       const json = await data.json()
       serversUp += json.length // max return value is 150 (50 per region)
     }
-    console.log(serversUp)
-
     if(serversUp > 125){
       setServerState('#28B766')
     }
