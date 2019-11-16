@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import { lighten } from 'polished'
 
 import icon from '../../images/icon.svg'
+import Link from '../layout/Link'
 import Button from '../layout/Button'
 
 const Container = styled.div`
@@ -116,7 +117,8 @@ export default function Plan({ name, price, servers, commands, jobs, notificatio
         <p>Analytics data kept for {analytics}</p>
       </Details>
       <ButtonContainer>
-        <Button alt>Try it now</Button>
+        <Button alt><Link isExternal to="https://www.patreon.com/bePatron?c=1523282"></Link></Button>
+
       </ButtonContainer>
     </Container>
   )
