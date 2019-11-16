@@ -42,6 +42,9 @@ const Nav = styled.nav`
   }
   button {
     margin-left: 45px;
+    a{
+      color: white;
+    }
   }
 `
 
@@ -51,9 +54,9 @@ export default function Header(){
       <Name><img alt="change me later" src={icon}/><Link to="/"><h2>csmm</h2></Link></Name>
       <Nav>
         <Link isExternal to="https://status.csmm.app"> <StatusCircle/> Status</Link>
-        <Link to="/pricing">Pricing</Link>
+        <Link to="/#pricing">Pricing</Link>
         <Link to="/contact">Contact</Link>
-        <Button>Premium</Button>
+        <Button><Link isExternal to="https://www.patreon.com/bePatron?c=1523282">Premium</Link></Button>
       </Nav>
     </Container>
   )

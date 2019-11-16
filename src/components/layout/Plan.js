@@ -93,6 +93,9 @@ const ButtonContainer = styled.div`
   button{
     font-size: 110%;
   }
+  a{
+    color: white;
+  }
 `
 
 export default function Plan({ name, price, servers, commands, jobs, notifications, teleports, location, inventory, analytics, isPopular = false }){
@@ -117,7 +120,7 @@ export default function Plan({ name, price, servers, commands, jobs, notificatio
         <p>Analytics data kept for {analytics}</p>
       </Details>
       <ButtonContainer>
-        <Button alt><Link isExternal to="https://www.patreon.com/bePatron?c=1523282"></Link></Button>
+        <Button alt><Link isExternal to="https://www.patreon.com/bePatron?c=1523282">Try it now!</Link></Button>
 
       </ButtonContainer>
     </Container>
