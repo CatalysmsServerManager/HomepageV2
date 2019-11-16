@@ -2,6 +2,7 @@
 */dist
 */build
 build/Release
+dist
 /dist
 
 # dependency directories
