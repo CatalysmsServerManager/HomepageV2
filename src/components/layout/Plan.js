@@ -95,6 +95,9 @@ const ButtonContainer = styled.div`
   }
   a{
     color: white;
+    &:hover{
+      color: white;
+    }
   }
 `
 
