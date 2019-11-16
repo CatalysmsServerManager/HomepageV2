@@ -13,11 +13,11 @@ const StyledButton = styled.button`
   transition: background-color .2s ease-in-out;
 
   &:hover{
-    background-color: ${({ theme }) => lighten(0.03, theme.main)}
+    background-color: ${({ theme, alt }) => lighten(0.05, alt ? theme.title : theme.main)}
   }
 `
 
-export default function Button({ alt = false, children }){
+export default function Button({ alt, children }){
   return (
     <StyledButton alt={alt}>
       { children }

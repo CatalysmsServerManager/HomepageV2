@@ -20,7 +20,7 @@ const Name = styled.div`
   align-items: center;
   justify-content: flex-start;
   font-size: 1.4rem;
-  font-weight: 500;
+  font-weight: 400;
   width: 50%;
   padding-left: 150px;
   img{
@@ -32,21 +32,23 @@ const Name = styled.div`
 const Nav = styled.nav`
   display: flex;
   align-items: center;
+  justify-content: flex-end;
   width: 50%;
+  padding-right: 150px;
 
   a{
-    margin-left: 70px;
-    margin-right: 70px;
+    margin-left: 45px;
+    margin-right: 45px;
   }
   button {
-    margin-left: 70px;
+    margin-left: 45px;
   }
 `
 
 export default function Header(){
   return (
     <Container>
-      <Name><img alt="change me later" src={icon}/><h2>csmm</h2></Name>
+      <Name><img alt="change me later" src={icon}/><Link to="/"><h2>csmm</h2></Link></Name>
       <Nav>
         <Link to="/status"> <StatusCircle/> Status</Link>
         <Link to="/pricing">Pricing</Link>
