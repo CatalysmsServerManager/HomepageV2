@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import ReactTooltip from 'react-tooltip'
 
 import Link from './Link'
 import discord from '../../images/discord.svg'
@@ -46,8 +47,9 @@ export default function Footer(){
         <Link isExternal to="/https://discordapp.com/invite/%45wy%44d%4E%41">
           <img alt="dit nog aanpassen" src={discord}/>
         </Link>
-        <Link isExternal to="/something">
-          <img alt="dit nog aanpassen" src={mail}/>
+        <Link isExternal to="mailto:info@csmm.app">
+          <img alt="dit nog aanpassen" data-tip="info@csmm.app" src={mail}/>
+          <ReactTooltip effect="solid"/>
         </Link>
       </IconNav>
       <div style={{ width: '33%' }}>
