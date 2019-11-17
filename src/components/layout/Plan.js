@@ -104,7 +104,7 @@ const ButtonContainer = styled.div`
 export default function Plan({ name, price, servers, commands, jobs, notifications, teleports, location, inventory, analytics, isPopular = false }){
   return (
     <Container isPopular={isPopular}>
-      <Name><img alt="later nog aanpassen" src={icon}/><h2>{name}</h2></Name>
+      <Name><img alt="csmm 7 Days to Die icon" src={icon} title="7 Days to Die Server Monitor"/><h2>{name}</h2></Name>
       <Price isPopular={isPopular}>
         <div className="symbol">
           <span>€</span>
