@@ -9,7 +9,7 @@ export default function App(){
   return (
     <ThemeProvider>
       <Helmet>
-        <title>title here</title>
+        <title>csmm | THE 7 Days to Die Server manager you need.</title>
         <link href="https://csmm.app/" rel="canonical"/>
         <meta content="csmm - a 7 days to die server manager" name="description"/>
       </Helmet>

@@ -123,8 +123,7 @@ export default function Plan({ name, price, servers, commands, jobs, notificatio
         <p>Analytics data kept for {analytics}</p>
       </Details>
       <ButtonContainer>
-        <Button alt><Link isExternal to="https://www.patreon.com/bePatron?c=1523282">Try it now!</Link></Button>
-
+        <Button alt role="link"><Link isExternal to="https://www.patreon.com/bePatron?c=1523282">Try it now!</Link></Button>
       </ButtonContainer>
     </Container>
   )
