@@ -44,6 +44,7 @@ const Inner = styled.div`
   align-items: center;
   justify-content: center;
   background-color: #fafafa;
+  border-radius: 10px;
 `
 
 export default function Server(){
