@@ -35,21 +35,6 @@ const Container = styled.div`
   }
 `
 
-const DotsContainer = styled.div`
-  display: block;
-
-  .first{
-    animation: 3s ${dotAnimation} infinite;
-  }
-  .second{
-    animation: 3s ${dotAnimation} infinite;
-    animation-delay: 1s;
-  }
-  .third{
-    animation: 3s ${dotAnimation} infinite;
-    animation-delay: 2s;
-  }
-`
 const Dot = styled.div`
   margin-left: 5px;
   margin-right: 5px;
@@ -60,8 +45,16 @@ const Dot = styled.div`
   transition: .2s background-color ease-in-out;
   background-color: ${({ theme }) => theme.main};
 
-  &:hover{
-    background-color: ${({ theme }) => theme.title};
+  &.first{
+    animation: 3s ${dotAnimation} infinite;
+  }
+  &.second{
+    animation: 3s ${dotAnimation} infinite;
+    animation-delay: 1s;
+  }
+  &.third{
+    animation: 3s ${dotAnimation} infinite;
+    animation-delay: 2s;
   }
 `
 
@@ -75,11 +68,9 @@ const Inner = styled.div`
 export default function Window(){
   return (
     <Container>
-      <DotsContainer>
-        <Dot className="first"/>
-        <Dot className="second"/>
-        <Dot className="third"/>
-      </DotsContainer>
+      <Dot className="first"/>
+      <Dot className="second"/>
+      <Dot className="third"/>
       <Inner/>
     </Container>
   )
