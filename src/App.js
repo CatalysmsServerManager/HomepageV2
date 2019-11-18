@@ -9,18 +9,22 @@ export default function App(){
   return (
     <ThemeProvider>
       <Helmet>
-        <title>csmm | THE 7 Days to Die Server manager you need.</title>
         <meta charset="UTF-8"/>
         <meta content="ie=edge" httpEquiv="X-UA-Compatible"/>
-        <meta name="robots" content="index, follow">
+        <meta content="true" name="HandHeldFriendly"/>
+        <meta content="index, follow" name="robots"/>
 
         <meta content="Massief" name="author"/>
         <meta content="massief"name="designer"/>
 
         <meta content="csmm" name="copyright"/>
+        {/*deze nog invullen */}
         <meta content="csmm - a 7 days to die server manager" name="description"/>
+        <meta content="" name="keywords"/>
+        <title>csmm | THE 7 Days to Die Server manager you need.</title>
 
         <link href="https://csmm.app/" rel="canonical"/>
+        <meta content="#28B766" name="theme-color"/>
       </Helmet>
       <Style/>
       <Routing history={history}/>
