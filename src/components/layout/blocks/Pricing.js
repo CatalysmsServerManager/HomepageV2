@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 import size from '../../../constants/size'
-
 import Plan from '../Plan'
 import planData from '../../../constants/plandata'
 
@@ -15,6 +14,32 @@ const Container = styled.section`
     width: 25%;
     margin: 25px 0;
   }
+  @media ${size.xl}{
+    p.intro{
+      width: 45%;
+      margin-bottom: 45px;
+    }
+  }
+  @media ${size.lg}{
+    text-align: center;
+    margin-bottom: 0;
+
+    p.intro{
+      width: 50%;
+      margin: 25px auto 100px auto;
+    }
+  }
+  @media ${size.sm}{
+    p.intro{
+      width: 70%;
+      margin-bottom: 25px;
+    }
+  }
+  @media ${size.xs}{
+    p.intro{
+      width: 100%;
+    }
+  }
 
 `
 const PlanContainer = styled.div`
@@ -25,6 +50,14 @@ const PlanContainer = styled.div`
 
   @media ${size.xl}{
     padding: 0;
+  }
+  @media ${size.lg}{
+    grid-template-columns: auto auto;
+    justify-content: space-around;
+    grid-gap: 15px;
+  }
+  @media ${size.sm}{
+    grid-template-columns: auto;
   }
 
 `
