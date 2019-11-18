@@ -1,15 +1,25 @@
 import React from 'react'
 import styled from 'styled-components'
+import size from '../../../constants/size'
 
 import iconBlack from '../../../images/icon-black.svg'
 import Window from '../Window'
 
 const Container = styled.section`
-  width: 100%;
-  height: calc(100vh - 270px);
+  width: 80%;
+  margin: 0 auto;
+  height: calc(100vh - 220px);
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  @media ${size.xl}{
+    width: 90%;
+  }
+  @media ${size.lg}{
+    flex-direction: column;
+    height: auto;
+  }
 `
 
 const TextContainer = styled.div`
@@ -29,13 +39,48 @@ const TextContainer = styled.div`
     text-align: left;
     width: 60%;
   }
+  @media ${size.lg}{
+    height: calc(100vh - 100px);
+    width: 100%;
+    align-items: center;
+    text-align: center;
 
-  .icon{
-    position: absolute;
-    width: 500px;
-    height: 500px;
-    opacity: 0.04;
-    z-index: -1;
+    h1{
+      font-size: 2rem;
+    }
+    p{
+      font-size: 1.2rem;
+      width: 80%;
+      text-align: center;
+    }
+  }
+
+  @media ${size.xs}{
+    h1{font-size: 1.5rem;}
+    p{ font-size: 1rem;}
+  }
+`
+
+const BackgroundIcon = styled.img`
+  position: absolute;
+  width: 500px;
+  opacity: 0.04;
+  z-index: -1;
+
+  @media ${size.xl}{
+    width: 400px;
+  }
+  @media ${size.lg}{
+    width: 600px;
+  }
+  @media ${size.sm}{
+    width: 400px;
+  }
+  @media ${size.xs}{
+    width: 300px;
+  }
+  @media ${size.xxs}{
+    width: 250px;
   }
 `
 
@@ -44,8 +89,8 @@ export default function Landing(){
     <Container>
       <TextContainer>
         <h1>The best 7 days to Die server manager.</h1>
-        <p>CSMM is a web based server manager for 7 Days to die. Bring your server(s) to the next level with CSMMs advanced features! Join hundreds of other servers in a new generation of server management.</p>
-        <img alt="csmm - 7 Days to Die Server Monitor icon" className="icon" src={iconBlack} title="7 Days to Die Server Monitor icon"/>
+        <p>CSMM is a web based server manager for 7 Days to die. Bring your server(s) to the next level with csmms advanced features! Join <strong>hundreds</strong> of other servers in a new generation of server management.</p>
+        <BackgroundIcon alt="csmm - 7 Days to Die Server Monitor icon" src={iconBlack} title="7 Days to Die Server Monitor icon"/>
       </TextContainer>
       <Window/>
     </Container>
