@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import size from '../../../constants/size'
 
 import Plan from '../Plan'
 import planData from '../../../constants/plandata'
@@ -20,8 +21,13 @@ const PlanContainer = styled.div`
   display: grid;
   padding: 0 150px;
   grid-template-columns: auto auto auto;
-`
+  grid-gap: 45px;
 
+  @media ${size.xl}{
+    padding: 0;
+  }
+
+`
 export default function Pricing(){
   return (
     <Container id="pricing">

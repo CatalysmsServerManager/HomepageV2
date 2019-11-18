@@ -14,7 +14,6 @@ const Container = styled.div`
   width: 300px;
   border: 5px solid ${({ theme, isPopular }) => isPopular ? lighten(0.65, theme.title) : theme.shade};
   border-radius: 20px;
-  margin-top: 25px;
   margin-bottom: px;
 `
 const Name = styled.div`

@@ -11,7 +11,7 @@ const Container = styled.section`
   display: grid;
   grid-template-columns: auto auto auto auto;
   width: 100%;
-  height: 200px;
+  height: 100%;
   margin: 50 0;
 
   @media ${size.lg}{
@@ -25,7 +25,7 @@ const Container = styled.section`
 `
 const Block = styled.div`
   min-width: 25%;
-  height: 200px;
+  height: 300px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -45,6 +45,12 @@ const Block = styled.div`
     width: 80%;
     margin: 0 auto;
     text-align: center;
+  }
+  @media ${size.sm}{
+    height: 200px;
+  }
+  @media ${size.xxs}{
+    height: 250px;
   }
 `
 
