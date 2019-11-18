@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import size from '../../../constants/size'
 import { Carousel } from 'react-responsive-carousel'
 import 'react-responsive-carousel/lib/styles/carousel.min.css'
 
@@ -39,7 +40,7 @@ const Window = styled.div`
   align-items: center;
   justify-content: center;
 `
-const ContentContainer = styled.div`
+const DesktopContentContainer = styled.div`
   width: 65%;
   height: 80%;
 
@@ -93,7 +94,7 @@ export default function Feature(){
       <Circle/>
       <Circle/>
       <Window>
-        <ContentContainer>
+        <DesktopContentContainer>
           <h2>Features.</h2>
           <StyledCarousel autoPlay={true} infiniteLoop={true} interval={10000} showArrows={false} showStatus={false} showThumbs={false} >
             <Block>
@@ -127,7 +128,7 @@ export default function Feature(){
               }
             </Block>
           </StyledCarousel>
-        </ContentContainer>
+        </DesktopContentContainer>
       </Window>
     </Container>
   )
