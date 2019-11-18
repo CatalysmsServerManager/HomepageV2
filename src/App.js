@@ -10,8 +10,17 @@ export default function App(){
     <ThemeProvider>
       <Helmet>
         <title>csmm | THE 7 Days to Die Server manager you need.</title>
-        <link href="https://csmm.app/" rel="canonical"/>
+        <meta charset="UTF-8"/>
+        <meta content="ie=edge" httpEquiv="X-UA-Compatible"/>
+        <meta name="robots" content="index, follow">
+
+        <meta content="Massief" name="author"/>
+        <meta content="massief"name="designer"/>
+
+        <meta content="csmm" name="copyright"/>
         <meta content="csmm - a 7 days to die server manager" name="description"/>
+
+        <link href="https://csmm.app/" rel="canonical"/>
       </Helmet>
       <Style/>
       <Routing history={history}/>
