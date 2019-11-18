@@ -14,15 +14,13 @@ export default function App(){
         <meta content="true" name="HandHeldFriendly"/>
         <meta content="index, follow" name="robots"/>
 
-        <meta content="Massief" name="author"/>
-        <meta content="massief"name="designer"/>
-
+        <meta content="Massief.biz" name="author"/>
+        <meta content="Massief.biz"name="designer"/>
         <meta content="csmm" name="copyright"/>
-        {/*deze nog invullen */}
-        <meta content="csmm - a 7 days to die server manager" name="description"/>
-        <meta content="" name="keywords"/>
-        <title>csmm | THE 7 Days to Die Server manager you need.</title>
 
+        <meta content="CSMM is a web based server manager for 7 Days to die. Bring your server(s) to the next level with CSMMs advanced features! Join hundreds of other servers in a new generation of server management." name="description"/>
+        <meta content="7 Days to Die, server manager, web, cloud, open source, csmm, Catalysm, Massief, 7 Days to Die server manager, monitor" name="keywords"/>
+        <title>csmm | THE 7 Days to Die Server manager you need.</title>
         <link href="https://csmm.app/" rel="canonical"/>
         <meta content="#28B766" name="theme-color"/>
       </Helmet>
