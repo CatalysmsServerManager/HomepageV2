@@ -1,32 +1,38 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { ResponsiveLine } from '@nivo/line'
-import styled from 'styled-components'
 
 export default function Chart({ data }){
   return (
     <ResponsiveLine
-
+      areaOpacity={0.05}
+      axisBottom={{
+        orient:         'bottom',
+        legend:         'date',
+        legendOffset:   110,
+        legendPosition: 'middle',
+        tickRotation:   67.5,
+        tickPadding:    10,
+        tickSize:       5
+      }}
       axisLeft={{
         orient:         'left',
         legend:         'servers',
-        legendOffset:   30,
+        legendOffset:   -60,
         legendPosition: 'middle'
       }}
-      axisRight={{
-        orient:         'right',
-        legend:         'players',
-        legendOffset:   30,
-        legendPosition: 'middle'
-      }}
-      colors={['#000','#FF99FF']}
+      axisRight={null}
+      axisTop={null}
+
+      colors={['#28B766']}
       curve="natural"
       data={data}
+      enableArea={true}
       enableGridX={false}
-      enableGridY={false}
+
+      margin={{ top: 50, right: 50, bottom: 140, left: 100 }}
       useMesh
-      xScale={{ type: 'point' }}
-      />
+      yScale={{ type: 'linear', max: 800 }}/>
   )
 }
 Chart.propTypes = {

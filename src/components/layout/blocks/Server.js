@@ -49,43 +49,58 @@ const Inner = styled.div`
 
 export default function Server(){
   let dataset = {}
-  const REGIONS = ['eu', 'us', 'au']
+  const REGIONS = ['us', 'eu', 'au']
   const [chartData, setChartData] = useState({loading: true})
 
-  useEffect(() => {
+  // init
+  useEffect(() =>componentLoad(), [])
 
-
-    // make eu the default selected region
+  async function componentLoad(){
+    // select eu by default
     document.querySelector('.region').classList.add('selected')
-
-    // calculate date 30 days ago
+    // date month ago
     let d = new Date()
     d.setMonth(d.getMonth()-1)
-    // fetch data from different regions
-    REGIONS.map( async (r) => dataset[r] = await getStats(d,r))
+
+    for(let i=0; i < REGIONS.length; i++){
+      dataset[REGIONS[i]] = await getStats(d,REGIONS[i])
+    }
     getChartData()
-  }, [])
+  }
 
-  async function getChartData(){
+  function getChartData(){
+    const regions = getSelectedRegions()
+    let serverdatas = []
 
-    const regions = await getSelectedRegions()
-    console.log(regions)
+    let servers = Array(dataset[regions[0]].length).fill(0)
+
+    for(let i=0; i<dataset[regions[0]].length;i++){// equal to amount of days
+      for(let j=0; j < regions.length; j++){
+        console.log('the region is' + regions[j])
+        servers[i] += dataset[regions[j]][i].servers
+      }
+    }
+    console.log(servers)
+
+    let serverData = []
 
     if(regions.length>1){
-      // optellen
+      setChartData({
+        data: [
+          { 'id': 'servers', 'data': serverData }
+        ],
+        loading: false
+      })
+
     } else {
-      let playerData = []
-      let serverData = []
-      console.log(dataset)
+      // init or only one is selected
       dataset[regions[0]].map((regiondata) => {
-        playerData.push({ 'x': regiondata.createdAt, 'y': regiondata.players})
-        serverData.push({ 'x': regiondata.createdAt, 'y': regiondata.servers})
+        serverData.push({ 'x': regiondata.date, 'y': regiondata.servers })
       })
 
       setChartData({
         data: [
-          {'id': 'players', 'data': playerData, 'color': 'hsl(197, 70%, 50%)'},
-          { 'id': 'servers', 'data': serverData, 'color': '#f47DA4'}
+          { 'id': 'servers','data': serverData }
         ],
         loading: false
       })
@@ -97,8 +112,10 @@ export default function Server(){
     let res = await fetch(`https://${region}.csmm.app/api/stats?since=${date.valueOf()}`)
     let json = await res.json()
     let regionData = []
+    let max = 0;
+
     json.map((day) => {
-      regionData.push({players: day.players, servers: day.servers, date: day.createdAt})
+      regionData.push({players: day.players, servers: day.servers, date: new Date(day.createdAt).toISOString().slice(0,10)})
     })
     return regionData
   }
