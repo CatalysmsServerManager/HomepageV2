@@ -124,18 +124,15 @@ const OnPageLink = styled.div`
     color: ${({ theme }) => lighten(0.2, theme.title)};
   }
 `
-
 export default function Header(){
   function scrollToPricing(e){
     console.log('this works')
     e.preventDefault()
     window.scrollTo({ top: document.getElementById('pricing').getBoundingClientRect().top, behavior: 'smooth' })
   }
-
   return (
     <Container>
       <Name><img alt="csmm 7 Days to Die Server Monitor Logo" src={icon} title="csmm 7 Days to Die Server Monitor logo"/><Link to="/"><h2>csmm</h2></Link></Name>
-
       <Nav>
         <Link isExternal to="https://status.csmm.app"> <StatusCircle/> Status</Link>
         <OnPageLink onClick={scrollToPricing} to="#pricing" >Pricing</OnPageLink>
