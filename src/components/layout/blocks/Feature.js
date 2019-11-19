@@ -99,22 +99,19 @@ export default function Feature(){
           <h2>Features.</h2>
           <StyledCarousel autoPlay={true} infiniteLoop={true} interval={10000} showArrows={false} showStatus={false} showThumbs={false} >
             {
-              featureData.map((featureData, index) => {
-                return (
-                  <Block key={uuid()}>
-                    {
-                      featureData.map((feature, index) => {
-                        return (
-                          <FeatureBlock key={`feature-${feature[index]}`}>
-                            <h3>{feature[0]}</h3>
-                            <p>{feature[1]}</p>
-                          </FeatureBlock>
-                        )
-                      })
-                    }
-                  </Block>
-                )
-              })
+              featureData.map((featureData) => (
+                <Block key={uuid()}>
+                  {
+                    featureData.map((feature, index) => (
+                      <FeatureBlock key={`feature-${feature[index]}`}>
+                        <h3>{feature[0]}</h3>
+                        <p>{feature[1]}</p>
+                      </FeatureBlock>
+                    ))
+                  }
+                </Block>
+              )
+              )
             }
           </StyledCarousel>
         </DesktopContentContainer>
