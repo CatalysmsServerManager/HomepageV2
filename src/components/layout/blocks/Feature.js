@@ -54,7 +54,6 @@ const Circle = styled.div`
     margin: 0 5px;
   }
 `
-
 const Inner = styled.div`
   width: calc(100% - 50px);
   margin-top: 5px;
@@ -118,7 +117,6 @@ const Block = styled.div`
   background-color: white;
   display: grid;
   grid-template-columns: auto auto;
-
   @media ${size.lg}{
     margin-top: 50px;
     padding-bottom: 0;
@@ -144,9 +142,9 @@ const FeatureBlock = styled.div`
 export default function Feature(){
   return (
     <Container>
-        <Circle/>
-        <Circle/>
-        <Circle/>
+      <Circle/>
+      <Circle/>
+      <Circle/>
       <Inner>
         <DesktopContentContainer>
           <h2>Features.</h2>
