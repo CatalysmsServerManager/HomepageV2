@@ -10,9 +10,25 @@ const Container = styled.section`
   height: 800px;
   margin-top: 200px;
   margin-bottom: 200px;
-  padding: calc(25px - 10px) 25px 25px 25px;
+  padding: calc(25px - 10px) 0 0 25px;
   background-color: ${({ theme }) => theme.shade};
   border-radius: 10px;
+  h2 {
+    font-size: 3rem;
+  }
+  @media ${size.md}{
+    height: 1000px;
+  }
+  @media ${size.sm}{
+    height: 1100px;
+  }
+  @media ${size.xs}{
+    width: 95%;
+    height: 1150px;
+  }
+  @media ${size.xxs}{
+    display: none;
+  }
 `
 
 const Circle = styled.div`
@@ -31,10 +47,10 @@ const Circle = styled.div`
   }
 `
 
-const Window = styled.div`
-  width: calc(100% - 50px);
+const Inner = styled.div`
+  width: calc(100% - 25px);
   margin-top: 5px;
-  height: calc(100% - 75px);
+  height: calc(100% - 50px);
   background-color: white;
   border-radius: 10px;
   display: flex;
@@ -42,13 +58,26 @@ const Window = styled.div`
   justify-content: center;
 `
 const DesktopContentContainer = styled.div`
-  width: 65%;
+  width: 80%;
   height: 80%;
-
-  h2 {
-    font-size: 3rem;
+  @media ${size.lg}{
+    display: none;
   }
-
+`
+const MobileContentContainer = styled.div`
+  display: none;
+  width: 80%;
+  height: 80%;
+  @media ${size.lg}{
+    display: block;
+  }
+  @media ${size.sm}{
+    height: 90%;
+  }
+  @media ${size.xxs}{
+    width: 90%;
+    height: 95%;
+  }
 `
 
 const StyledCarousel = styled(Carousel)`
@@ -72,19 +101,33 @@ const StyledCarousel = styled(Carousel)`
   }
 `
 const Block = styled.div`
-  height: 400px;
+  height: 500px;
   grid-gap: 30px;
   width: 100%;
   padding-bottom: 100px;
   background-color: white;
   display: grid;
   grid-template-columns: auto auto;
+
+  @media ${size.lg}{
+    margin-top: 50px;
+    padding-bottom: 0;
+  }
+  @media ${size.md}{
+    display: block;
+    margin-top: 0;
+    height: auto;
+  }
 `
 const FeatureBlock = styled.div`
   text-align: left;
   h3{
     color: ${({ theme }) => theme.main};
     font-size: 1.1rem;
+  }
+  @media ${size.md}{
+    margin-bottom: 25;
+    margin-top: 25px;
   }
 `
 
@@ -94,7 +137,7 @@ export default function Feature(){
       <Circle/>
       <Circle/>
       <Circle/>
-      <Window>
+      <Inner>
         <DesktopContentContainer>
           <h2>Features.</h2>
           <StyledCarousel autoPlay={true} infiniteLoop={true} interval={10000} showArrows={false} showStatus={false} showThumbs={false} >
@@ -115,7 +158,20 @@ export default function Feature(){
             }
           </StyledCarousel>
         </DesktopContentContainer>
-      </Window>
+        <MobileContentContainer>
+          <h2>features.</h2>
+          <Block>
+            {
+              featureData[1].map((feature, index) => (
+                <FeatureBlock key={`feature-mobile-${feature[index]}`}>
+                  <h3>{feature[0]}</h3>
+                  <p>{feature[1]}</p>
+                </FeatureBlock>
+              ))
+            }
+          </Block>
+        </MobileContentContainer>
+      </Inner>
     </Container>
   )
 }
