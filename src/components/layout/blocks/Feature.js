@@ -10,7 +10,7 @@ const Container = styled.section`
   height: 800px;
   margin-top: 200px;
   margin-bottom: 200px;
-  padding: calc(25px - 10px) 0 0 25px;
+  padding: 15px 0 0 0;
   background-color: ${({ theme }) => theme.shade};
   border-radius: 10px;
   h2 {
@@ -23,7 +23,7 @@ const Container = styled.section`
     height: 1100px;
   }
   @media ${size.xs}{
-    width: 95%;
+    width: 100%;
     height: 1150px;
   }
   @media ${size.xxs}{
@@ -39,16 +39,24 @@ const Circle = styled.div`
   border-radius: 50%;
   margin: 0 10px;
   transition: background-color .3s ease-in-out;
+  &:first-child{
+    margin-left: 30px;
+  }
 
   &:hover{
     &:first-child{
     background-color: ${({ theme }) => theme.title};
     }
   }
+  @media ${size.md}{
+    width: 10px;
+    height: 10px;
+    margin: 0 5px;
+  }
 `
 
 const Inner = styled.div`
-  width: calc(100% - 25px);
+  width: calc(100% - 50px);
   margin-top: 5px;
   height: calc(100% - 50px);
   background-color: white;
@@ -56,6 +64,8 @@ const Inner = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
 `
 const DesktopContentContainer = styled.div`
   width: 80%;
@@ -134,9 +144,9 @@ const FeatureBlock = styled.div`
 export default function Feature(){
   return (
     <Container>
-      <Circle/>
-      <Circle/>
-      <Circle/>
+        <Circle/>
+        <Circle/>
+        <Circle/>
       <Inner>
         <DesktopContentContainer>
           <h2>Features.</h2>
