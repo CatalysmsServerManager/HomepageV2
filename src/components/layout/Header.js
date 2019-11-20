@@ -94,7 +94,7 @@ const Nav = styled.nav`
   }
 `
 
-const MobileNav = styled.nav`
+const MobileIcon = styled.nav`
   display: none;
   cursor: pointer;
 
@@ -139,9 +139,9 @@ export default function Header(){
         <Link to="/contact" >Contact</Link>
         <Link isExternal to="https://www.patreon.com/bePatron?c=1523282"><Button> Premium </Button></Link>
       </Nav>
-      <MobileNav>
+      <MobileIcon>
         <img alt="hamburger menu icon" src={menu} title="menu icon"/>
-      </MobileNav>
+      </MobileIcon>
     </Container>
   )
 }
