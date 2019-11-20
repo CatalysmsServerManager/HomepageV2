@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { lighten } from 'polished'
 import size from '../../constants/size'
+import MobileNav from './MobileNav'
 
 import Link from './Link'
 import Button from './Button'
@@ -132,6 +133,7 @@ export default function Header(){
   }
   return (
     <Container>
+      <MobileNav/>
       <Name><img alt="csmm 7 Days to Die Server Monitor Logo" src={icon} title="csmm 7 Days to Die Server Monitor logo"/><Link to="/"><h2>csmm</h2></Link></Name>
       <Nav>
         <Link isExternal to="https://status.csmm.app"> <StatusCircle/> Status</Link>
