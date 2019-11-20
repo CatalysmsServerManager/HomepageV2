@@ -133,7 +133,6 @@ export default function Header(){
   }
   return (
     <Container>
-      <MobileNav/>
       <Name><img alt="csmm 7 Days to Die Server Monitor Logo" src={icon} title="csmm 7 Days to Die Server Monitor logo"/><Link to="/"><h2>csmm</h2></Link></Name>
       <Nav>
         <Link isExternal to="https://status.csmm.app"> <StatusCircle/> Status</Link>
@@ -143,6 +142,7 @@ export default function Header(){
       </Nav>
       <MobileIcon>
         <img alt="hamburger menu icon" src={menu} title="menu icon"/>
+        <MobileNav/>
       </MobileIcon>
     </Container>
   )
