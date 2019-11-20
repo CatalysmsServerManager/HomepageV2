@@ -33,6 +33,14 @@ const Container = styled.div`
   @media ${size.xl}{
     width: 500px;
   }
+  @media ${size.lg}{
+    width: 80%;
+    margin-bottom: 50px;
+  }
+
+  @media ${size.sm}{
+    width: 100%;
+  }
 `
 
 const Dot = styled.div`
