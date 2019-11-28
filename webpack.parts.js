@@ -62,8 +62,7 @@ exports.generateFavicon = () => ({
 exports.cleanDist = () => ({
   plugins: [
     new CleanWebpackPlugin({
-      dry:     false, // this simulates the removal off files so you don't remove files outside the dist
-      verbose: false
+      dry: true
     })
   ]
 })

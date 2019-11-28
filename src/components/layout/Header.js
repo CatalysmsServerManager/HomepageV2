@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { lighten } from 'polished'
+import { useCycle } from 'framer-motion'
 import size from '../../constants/size'
 import MobileNav from './MobileNav'
 
@@ -96,6 +97,7 @@ const Nav = styled.nav`
 `
 
 const MobileIcon = styled.nav`
+  position: relative;
   display: none;
   cursor: pointer;
 
@@ -126,6 +128,8 @@ const OnPageLink = styled.div`
   }
 `
 export default function Header(){
+  const [isOpen, toggleOpen] = useCycle(false, true)
+
   function scrollToPricing(e){
     console.log('this works')
     e.preventDefault()
@@ -141,9 +145,9 @@ export default function Header(){
         <Link isExternal to="https://www.patreon.com/bePatron?c=1523282"><Button> Premium </Button></Link>
       </Nav>
       <MobileIcon>
-        <img alt="hamburger menu icon" src={menu} title="menu icon"/>
-        <MobileNav/>
+        <img alt="hamburger menu icon" src={menu} title="menu icon" onClick={() => toggleOpen()}/>
       </MobileIcon>
+      <MobileNav isOpen={isOpen} init={false}/>
     </Container>
   )
 }
