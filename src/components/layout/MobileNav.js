@@ -20,7 +20,7 @@ const Container = styled.div`
     align-items: center;
     justify-content: center;
     height: ${({ isOpen }) => isOpen ? '100vh' : 0};
-    transition: height .3s ease-in-out;
+    transition: height .3s ease-out;
     overflow: hidden;
   }
 `
@@ -33,6 +33,7 @@ const Nav = styled.nav`
    margin-bottom: 10px;
    margin-top: 10px;
    color: white;
+   font-size: 1.3rem;
 
    &:hover{
      color: ${darken(0.05, '#FFFFFF')};
@@ -43,7 +44,7 @@ export default function MobileNav({ isOpen }){
   return (
     <Container isOpen={isOpen}>
       <Nav>
-        <Link isExternal to="https://status.csmm.app"> <StatusCircle/> Status</Link>
+        <Link isExternal to="https://status.csmm.app"> <StatusCircle coloredBackground={true}/> Status</Link>
         <Link isExternal to="https://www.patreon.com/bePatron?c=1523282">Premium</Link>
         <Link to="/termsofservice">Terms of service</Link>
         <Link isExternal to="https://docs.csmm.app/">Documentation</Link>

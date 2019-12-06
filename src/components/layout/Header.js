@@ -3,12 +3,11 @@ import styled from 'styled-components'
 import { lighten } from 'polished'
 import size from '../../constants/size'
 import MobileNav from './MobileNav'
-
+import Hamburger from './Hamburger'
 import Link from './Link'
 import Button from './Button'
 import StatusCircle from './StatusCircle'
 import icon from '../../images/icon.svg'
-import menu from '../../images/menu.svg'
 
 const Container = styled.header`
   width: 100%;
@@ -94,30 +93,6 @@ const Nav = styled.nav`
     display: none;
   }
 `
-
-const MobileIcon = styled.nav`
-  position: relative;
-  display: none;
-  cursor: pointer;
-  z-index: 2;
-
-  @media ${size.md}{
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    padding-right: 100px;
-    width: 50%;
-    img{
-      width: 25px;
-      height: 25px;
-    }
-  }
-  @media ${size.xxs}{
-    padding-right: 50px;
-  }
-
-`
-
 const OnPageLink = styled.div`
   color: ${({ theme }) => theme.title};
   font-weight: 500;
@@ -144,9 +119,7 @@ export default function Header(){
         <Link to="/contact" >Contact</Link>
         <Link isExternal to="https://www.patreon.com/bePatron?c=1523282"><Button> Premium </Button></Link>
       </Nav>
-      <MobileIcon>
-        <img alt="hamburger menu icon" onClick={() => toggleOpen(!isOpen)} src={menu} title="menu icon"/>
-      </MobileIcon>
+      <Hamburger isOpen={isOpen} toggleOpen={toggleOpen}/>
       <MobileNav isOpen={isOpen}/>
     </Container>
   )
