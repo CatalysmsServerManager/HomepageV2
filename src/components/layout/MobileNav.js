@@ -1,29 +1,57 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { motion, useCycle } from 'framer-motion'
+import size from '../../constants/size'
+import { darken } from 'polished'
 
-const Container = styled(motion.div)`
+import StatusCircle from './StatusCircle'
+import Link from './Link'
+
+const Container = styled.div`
+  display: none;
+  width: 100%;
   position: absolute;
-  top:0;
-  left: 0;
-  width:  100%;
-  height: 100%;
-  background-color: purple;
+  top: 0;
+  background-color: ${({ theme }) => theme.main};
   z-index: 1;
+
+  @media ${size.md}{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: ${({ isOpen }) => isOpen ? '100vh' : 0};
+    transition: height .3s ease-in-out;
+    overflow: hidden;
+  }
 `
+const Nav = styled.nav`
+ display: flex;
+ align-items: center;
+ flex-direction: column;
+ justify-content: center;
+ a{
+   margin-bottom: 10px;
+   margin-top: 10px;
+   color: white;
 
-export default function MobileNav({ isOpen, init }){
-
+   &:hover{
+     color: ${darken(0.05, '#FFFFFF')};
+   }
+ }
+`
+export default function MobileNav({ isOpen }){
   return (
-    <Container
-      initial={init}
-      isOpen={isOpen}
-      transition={{ ease: 'easeInOut', duration: 1 }}
-    />
+    <Container isOpen={isOpen}>
+      <Nav>
+        <Link isExternal to="https://status.csmm.app"> <StatusCircle/> Status</Link>
+        <Link isExternal to="https://www.patreon.com/bePatron?c=1523282">Premium</Link>
+        <Link to="/termsofservice">Terms of service</Link>
+        <Link isExternal to="https://docs.csmm.app/">Documentation</Link>
+        <Link isExternal to="https://github.com/CatalysmsServerManager/7-days-to-die-server-manager">Source code</Link>
+      </Nav>
+    </Container>
   )
 }
-
 MobileNav.propTypes = {
   isOpen: PropTypes.bool.isRequired
 }
