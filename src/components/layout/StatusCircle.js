@@ -20,8 +20,6 @@ export default function StatusCircle(){
   }, [])
 
   async function showState({ coloredBackground = false }){
-    // fetch here
-    console.log('this works')
     const urls = ['https://us.csmm.app/api/stats','https://eu.csmm.app/api/stats','https://au.csmm.app/api/stats']
     let serversUp = 0
     for (let i=0; i<urls.length; i++){
