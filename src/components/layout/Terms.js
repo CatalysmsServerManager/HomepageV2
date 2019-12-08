@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import size from '../../constants/size'
 
 import Link from './Link'
 import icon from '../../images/icon-black.svg'
@@ -20,6 +21,10 @@ const Landing = styled.div`
   h1{
     font-size: 5rem;
     color: ${({ theme }) => theme.main};
+    @media ${size.sm}{
+      font-size: 3rem;
+      text-align: center;
+    }
   }
 `
 const Icon = styled.img`
@@ -38,8 +43,14 @@ const Icon = styled.img`
 const ChaptersContainer = styled.div`
   width: 80%;
   margin: 0 auto;
-`
 
+  @media ${size.sm}{
+    width: 90%;
+  }
+  @media ${size.xs}{
+    width: 95%;
+  }
+`
 const Chapter = styled.div`
   margin: 100px 25px;
   h2{
@@ -49,6 +60,12 @@ const Chapter = styled.div`
   p{
     margin-bottom: 15px;
     margin-top: 15px;
+  }
+  @media ${size.md}{
+    margin: 50px 25px;
+  }
+  @media ${size.sm}{
+    margin: 25px 15px;
   }
 `
 const SubChapter = styled.div`
