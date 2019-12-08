@@ -2,12 +2,14 @@ import React from 'react'
 import styled from 'styled-components'
 
 import Link from './Link'
+import icon from '../../images/icon-black.svg'
 
 const Container = styled.section`
   min-height: 100vh;
   padding-bottom: 100px;
 `
 const Landing = styled.div`
+  position: relative;
   width: 100%;
   height: 100vh;
   display: flex;
@@ -20,6 +22,19 @@ const Landing = styled.div`
     color: ${({ theme }) => theme.main};
   }
 `
+const Icon = styled.img`
+  position: absolute;
+  top:  50%;
+  right: 0;
+  left: 0;
+  width: 60%;
+  height: 60%;
+  transform: translateY(-50%);
+  margin: 0 auto;
+  opacity: 0.05;
+  z-index: -1;
+`
+
 const ChaptersContainer = styled.div`
   width: 80%;
   margin: 0 auto;
@@ -50,6 +65,7 @@ export default function Terms(){
       <Landing>
         <h1>Terms of Service</h1>
         <p>Last modified on 10 Dec 2019.</p>
+        <Icon alt="Csmm icon" src={icon}/>
       </Landing>
       <ChaptersContainer>
         <Chapter>
@@ -67,7 +83,7 @@ export default function Terms(){
             </p>
           </SubChapter>
           <SubChapter>
-            <h3>Platform license (Csmm content solution)</h3>
+            <h3>Platform license (csmm content solution)</h3>
             <p>
               In case where You are being offered access to certain Customer Content, You shall 1. respect the limits within which the Customer Content has been made available to You, and 2. be allowed to use the Csmm Services only in order to get access to the Customer Content as made available to You.
             </p>
@@ -107,22 +123,6 @@ export default function Terms(){
           </SubChapter>
         </Chapter>
         <Chapter>
-          <h2>Data security and privacy</h2>
-          <SubChapter>
-            <h3>General</h3>
-            <p>
-            Csmm’s team goes above and beyond to fully secure your data and ensure your privacy. We will continue to be at the forefront of the latest requirements. This gives our customers enough information to be compliant while offering them the flexibility to make changes to the platform according to their organizational needs – ensuring secure data access at all times.
-            </p>
-          </SubChapter>
-          <SubChapter>
-            <h3>End-to-end encryption</h3>
-            <p>Guaranteeing integrity and confidentiality, all data in Csmm is stored and transmitted with end-to-end TLS encryption.</p>
-          </SubChapter>
-          <SubChapter>
-            <h3>something else</h3>
-          </SubChapter>
-        </Chapter>
-        <Chapter>
           <h2>Contact</h2>
           <p>
             In case you have any questions or wish to contact us in the context of these terms of service. U can reach us via the options below:
@@ -133,7 +133,6 @@ export default function Terms(){
             <li><Link isExternal to="https://discordapp.com/invite/%45wy%44d%4E%41">Discord</Link></li>
           </ul>
         </Chapter>
-
       </ChaptersContainer>
     </Container>
   )
