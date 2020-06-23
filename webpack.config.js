@@ -1,29 +1,51 @@
-require('dotenv').config()
-const merge = require('webpack-merge')
-const parts = require('./webpack.parts')
+require('dotenv').config();
+const merge = require('webpack-merge');
+const parts = require('./webpack.parts.js');
+const chalk = require('chalk');
+
+const PublicEnvironmentVariables = {
+  'process.env': {
+  }
+}
 
 const commonConfig = merge([
   parts.start(),
+  parts.aliases(),
   parts.IO(),
   parts.loadHtml(),
-  parts.cssExtract()
+  parts.cssExtract(),
+  parts.RebuildOnModuleInstall(),
+  parts.progress()
 ])
 
 const productionConfig = merge([
-  parts.loaders({ filename: '[contenthash].[ext]' }),
   parts.cleanDist(),
   parts.manifest(),
+  parts.loaders({ filename: '[contenthash].[ext]' }),
+  parts.banner(),
   parts.minify(),
-  parts.minimizeImages()
-])
+  parts.minimizeImages(),
+  parts.ServiceWorker(),
+  parts.dotEnv(PublicEnvironmentVariables),
+  parts.CopyPublicFolder()
+]);
 
 const developmentConfig = merge([
   parts.loaders({ filename: '[name].[ext]' }),
   parts.devServer({
-    // customize host/port in env
     host: process.env.HOSTNAME,
-    port: process.env.WEBPACK_PORT
-  })
-])
+    port: process.env.PORT
+  }),
+  parts.sourceMap(),
+  parts.dotEnv(PublicEnvironmentVariables),
+]);
 
-module.exports = (mode) => mode === 'production' ? merge(commonConfig, productionConfig, { mode }) : merge(commonConfig, developmentConfig, { mode })
+module.exports = ({ mode }) => {
+  console.log(chalk.white('webpack mode:'), chalk.green(mode));
+  switch (mode) {
+    case 'development':
+      return merge(commonConfig, developmentConfig, { mode })
+    case 'production':
+      return merge(commonConfig, productionConfig, { mode })
+  }
+}

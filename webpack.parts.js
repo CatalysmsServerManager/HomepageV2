@@ -1,56 +1,107 @@
-const { CleanWebpackPlugin } = require('clean-webpack-plugin')
-const HtmlWebPackPlugin = require('html-webpack-plugin')
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const ManifestPlugin = require('webpack-manifest-plugin')
-const TerserPlugin = require('terser-webpack-plugin')
-const ImageminPlugin = require('imagemin-webpack-plugin').default
-const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
-const path = require('path')
+/**
+ * Copyright (c) 2020-present, Bantr, Inc.
+ * Emiel Van Severen
+ */
 
-exports.start = () => (
-  console.log('Webpack has been started..')
-)
+// const CleanWebpackPlugin = require('clean-webpack-plugin')
+const webpack = require('webpack');
+const dotenv = require('dotenv');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
+const WatchMissingNodeModulesPlugin = require('react-dev-utils/WatchMissingNodeModulesPlugin');
+const HtmlWebPackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const ManifestPlugin = require('webpack-manifest-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
+const ImageminPlugin = require('imagemin-webpack-plugin').default;
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const WorkboxWebpackPlugin = require('workbox-webpack-plugin');
+const ProgressBarPlugin = require('progress-bar-webpack-plugin');
+const path = require('path');
+const chalk = require('chalk');
+
+const createStyledComponentsTransformer = require('typescript-plugin-styled-components').default;
+const styledComponentsTransformer = createStyledComponentsTransformer();
+
+exports.start = () => console.log('Webpack has been started..');
 
 exports.IO = () => ({
-  devtool:  '',
-  target:   'web',
+  devtool: '',
+  target: 'web',
   // startpoint
-  entry:    [
-    path.join(__dirname, '/src/index.js')
-  ],
+  entry: [path.join(__dirname, '/src/index.tsx')],
   // on production this returns one bundled js file. To avoid caching a hash is added.
   output: {
-    chunkFilename:  '[name].js',
-    filename:       '[name].bundle.[hash:8].js'
-  }
+    chunkFilename: '[name].js',
+    filename: '[name].bundle.[hash:8].js',
+    publicPath: '/' // fixes mime type error when links are clicked (history fallback api bug)
+  },
+});
+
+exports.progress = () => ({
+  plugins: [
+    new ProgressBarPlugin({
+      format: 'build [:bar] ' + chalk.green.bold(':percent') + ' (:elapsed seconds)',
+      clear: false
+    })
+  ]
+});
+
+exports.dotEnv = (env) => ({
+  plugins: [
+    new webpack.DefinePlugin(env)
+  ]
+});
+
+exports.CopyPublicFolder = () => ({
+  plugins: [
+    new CopyWebpackPlugin([
+      { from: 'public', to: '' }
+    ])
+  ]
 })
 
-exports.devServer = ({ host, port } = {}) => ({
+exports.devServer = ({ host, port } = { host: 'localhost', port: 8080 }) => ({
   devServer: {
-    host:               host,
-    port:               port,
-    open:               true,
-    stats:              'errors-only',
-    hot:                true,
-    overlay:            true,
-    compress:           true,
+    host: host,
+    port: port,
+    open: true,
+    stats: 'errors-only',
+    hot: true,
+    overlay: {
+      warnings: false,
+      errors: true
+    },
+    compress: true,
+    disableHostCheck: true,
+    public: 'localhost',
     historyApiFallback: true, // path changes react router dom.,
-    after:              () => console.log('Development server has been started.')
-    //proxy:              [
-    //  {
-    //    context: [''],
-    //    target:  process.env.API
-    //  }
-    // ] as we have no api, we don't need one
+    after: () => console.log('Development server has been started.')
   }
-})
+});
+exports.banner = () => ({
+  plugins: [
+    new webpack.BannerPlugin({
+      banner: 'contributed by: github.com/emielvanseveren, github.com/niekcandaele hash:[hash] name:[name]'
+    })
+  ]
+});
 exports.cleanDist = () => ({
   plugins: [
     new CleanWebpackPlugin({
-      dry: true
+      verbose: false
     })
   ]
-})
+});
+exports.sourceMap = () => ({
+  devtool: 'source-map'
+});
+
+exports.RebuildOnModuleInstall = () => ({
+  plugins: [new WatchMissingNodeModulesPlugin(path.resolve('node_modules'))]
+});
+
 exports.loadHtml = () => ({
   plugins: [
     new HtmlWebPackPlugin({
@@ -58,77 +109,94 @@ exports.loadHtml = () => ({
       filename: 'index.html'
     })
   ]
-})
-
+});
 exports.cssExtract = () => ({
   plugins: [
     new MiniCssExtractPlugin({
-      filename:       '[name].min.css',
-      chunkFilename:  '[id].css'
+      filename: '[name].min.css',
+      chunkFilename: '[id].css'
     })
   ]
-})
-
+});
 exports.minify = () => ({
   optimization: {
     minimizer: [
       new TerserPlugin({
-        parallel:       4,
-        terserOptions:  {
+        parallel: 4,
+        sourceMap: false,
+        terserOptions: {
+          ecma: 7,
           warnings: false,
-          ecma:         8,
-          output:       {
-            comments: false
-          },
-          extractComments: false,
-          ie8:             false,
-          compress:        {},
-          mangle:          true
+          output: true,
+          ie8: false,
+          compress: {},
+          mangle: true,
+          safari10: false
         }
       }),
       new OptimizeCSSAssetsPlugin({})
     ],
     splitChunks: {
-      chunks:             'all',
+      chunks: 'all',
       maxInitialRequests: Infinity,
-      minSize:            0
+      minSize: 0
     }
   }
-})
-
+});
 exports.manifest = () => ({
-  plugins: [
-    new ManifestPlugin()
-  ]
-})
-
+  plugins: [new ManifestPlugin()]
+});
 exports.minimizeImages = () => ({
   plugins: [
     new ImageminPlugin({
-      test:     'dist/**',
+      test: 'dist/**',
       pngquant: {
         quality: '95-100'
       }
     })
   ]
-})
+});
 
-// core of webpack all files pass this module. based on which kind it is handled by a different loader.
+exports.ServiceWorker = () => ({
+  plugins: [
+    new WorkboxWebpackPlugin.GenerateSW({
+      clientsClaim: true, // Whether or not the service worker should start controlling any existing clients as soon as it activates.
+      exclude: [/\.map$/, /asset-manifest\.json$/]
+    })
+  ]
+});
+
+exports.aliases = () => ({
+  resolve: {
+    extensions: ['.ts', '.tsx', '.js', 'jsx', '.json'],
+    alias: {
+      'lib': path.resolve(__dirname, 'lib')
+    }
+  }
+});
+
 exports.loaders = ({ filename }) => ({
   module: {
     rules: [
       {
-        test:     /\.(js|jsx)$/,
-        exclude:  /node_modules/,
-        // remember that a file is first handled by stylelint then by babel. If there is a styling error. This will cancel the build and return the styling error.
-        use:      [
+        test: /\.tsx?$/,
+        exclude: /node_modules/,
+        use: [
           'babel-loader',
-          'stylelint-custom-processor-loader'
+          {
+            loader: 'ts-loader',
+            options: { getCustomTransformers: () => ({ before: [styledComponentsTransformer] }) }
+          }
         ]
       },
       {
+        test: /\.(jsx)$/,
+        exclude: /node_modules/,
+        use: ['babel']
+      },
+      {
         test: /\.html$/,
-        use:  [
+        use: [
           {
             loader: 'html-loader'
           }
@@ -136,11 +204,11 @@ exports.loaders = ({ filename }) => ({
       },
       {
         test: /\.(css|scss)$/,
-        use:  [
+        use: [
           MiniCssExtractPlugin.loader,
           {
-            loader:   'css-loader',
-            options:  {
+            loader: 'css-loader',
+            options: {
               importLoaders: 2
             }
           },
@@ -151,16 +219,28 @@ exports.loaders = ({ filename }) => ({
       },
       {
         test: /\.(jp?g|png|svg|webp|gif)$/,
-        use:  {
-          loader:   'url-loader',
-          options:  {
-            limit:      8192,
-            fallback:   'file-loader',
-            name:       filename,
-            outputPath: 'assets/images'
+        use: {
+          loader: 'url-loader',
+          options: {
+            limit: 8192,
+            fallback: 'file-loader',
+            name: filename,
+            outputPath: 'images'
           }
         }
+      },
+      {
+        test: /\.(ogg|mp3|wav|mpe?g)$/i,
+        loader: 'file-loader',
+        options: {
+          name: '[path][name].[ext]'
+        }
+      },
+      {
+        test: /\.(graphql|gql)$/,
+        exclude: /node_modules/,
+        use: ['graphql-tag/loader']
       }
     ]
   }
-})
+});
