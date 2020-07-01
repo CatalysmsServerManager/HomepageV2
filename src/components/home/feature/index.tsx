@@ -2,9 +2,11 @@ import * as React from 'react';
 import { v4 as uuid } from 'uuid';
 import { Block, Circle, Container, DesktopContentContainer, FeatureBlock, Inner, MobileContentContainer, StyledCarousel } from './style';
 import { featureData } from './featureData';
+import { Arrow } from './arrow';
 
 export const Feature: React.FC = () => (
   <Container>
+    <Arrow />
     <Circle />
     <Circle />
     <Circle />

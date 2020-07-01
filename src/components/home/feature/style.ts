@@ -4,6 +4,7 @@ import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { SCREEN } from 'lib/enums';
 
 export const Container = styled.section`
+  position: relative;
   width: 100%;
   height: 800px;
   margin-top: 200px;

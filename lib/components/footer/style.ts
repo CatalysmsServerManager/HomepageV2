@@ -11,7 +11,6 @@ export const Container = styled.footer`
   background-color: #fafafa;
 
   @media ${SCREEN.md}{
-    height: 75px;
     padding: 25px 0;
     grid-template-columns: auto;
   }
@@ -29,6 +28,10 @@ export const IconNav = styled.nav`
   }
   svg {
     margin: 0 15px;
+  }
+
+  @media ${SCREEN.md}{
+    margin-bottom: 10px;
   }
 `;
 

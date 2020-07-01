@@ -23,7 +23,7 @@ const dotAnimation = keyframes`
 `;
 
 export const Container = styled.div`
-  width: 800px;
+  width: 50%;
   height: auto;
   max-height: 65vh;
   background-color: ${({ theme }): string => theme.shade};
@@ -33,12 +33,8 @@ export const Container = styled.div`
 li.slide{
   background-color: white;
 }
-
-@media ${ SCREEN.xl} {
-  width: 700px;
-}
-@media ${ SCREEN.sm} {
-  width: 100%;
+@media ${SCREEN.md} {
+  width: 90%;
 }
 `;
 

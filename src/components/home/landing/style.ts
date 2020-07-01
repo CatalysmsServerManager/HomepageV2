@@ -16,6 +16,11 @@ export const Container = styled.section`
     flex-direction: column;
     height: auto;
   }
+  @media ${SCREEN.xs}{
+    width: 95%;
+    padding-top: 100px;
+    height: auto;
+  }
 `;
 
 export const TextContainer = styled.div`
@@ -52,12 +57,18 @@ export const TextContainer = styled.div`
       font-size: 1.2rem;
       width: 80%;
       text-align: center;
+      margin-bottom: 15px;
     }
   }
 
   @media ${SCREEN.xs}{
     h1{font-size: 1.5rem;}
-    p{ font-size: 1rem;}
+    p{
+      width: 95%;
+      font-size: 1rem;
+    }
+    height: auto;
+
   }
 `;
 
@@ -90,4 +101,34 @@ export const Block = styled.div`
   img{
     height: 100%;
   }
+`;
+
+export const ButtonContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  margin-top: 25px;
+
+  button{
+    margin: 0 10px;
+    a{
+      color: white;
+    }
+
+    &:first-child{
+      margin-left: 0;
+    }
+  }
+
+  @media ${SCREEN.lg}{
+    justify-content: center;
+  }
+  @media ${SCREEN.xxs}{
+    flex-direction: column;
+    button{
+    margin: 15px 0;
+    }
+  }
+
 `;

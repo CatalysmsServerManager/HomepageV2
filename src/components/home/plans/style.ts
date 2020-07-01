@@ -1,5 +1,14 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { SCREEN } from 'lib/enums';
+
+const rotateAnimation = keyframes`
+  from {
+    rotate: 0deg;
+  }
+  to{
+    rotate: 360deg;
+  }
+`;
 
 export const Container = styled.section`
   position: relative;
@@ -66,6 +75,8 @@ export const BackgroundIcon = styled.img`
   width: 300px;
   opacity: 0.06;
   z-index: -1;
+
+  animation: ${rotateAnimation} 20s linear infinite;
 
   @media ${SCREEN.lg}{
     width: 200px;

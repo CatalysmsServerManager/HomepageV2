@@ -11,7 +11,7 @@ export const Plan: React.FC<IPlan> = ({ analytics, name, price, servers, command
       <h2>{name}</h2>
     </Name>
     <Price isPopular={isPopular}>
-      {isPopular ? <Popular>Most Popular</Popular> : ''}
+      {isPopular ? <Popular>Most Popular!</Popular> : ''}
       <div className="symbol">
         <span>€</span>
       </div>
