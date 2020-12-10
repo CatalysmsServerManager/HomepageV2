@@ -22,7 +22,7 @@ export const Landing: React.FC = () => (
       <ButtonContainer>
         <Button><a href="https://eu.csmm.app" rel="noreferrer noopener" target="_blank">EU Region</a></Button>
         <Button><a href="https://au.csmm.app" rel="noreferrer noopener" target="_blank">AU Region</a></Button>
-        <Button><a href="https://us.csmm.app" rel="noreferrer noopener" target="_blank">US Region</a></Button>
+        <Button><a href="https://us.csmm.app" rel="noreferrer noopener" target="_blank"><s>US Region</s></a> (Instance Full)</Button>
       </ButtonContainer>
       <Arrow />
     </TextContainer>
