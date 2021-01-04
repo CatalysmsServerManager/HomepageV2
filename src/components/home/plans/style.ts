@@ -14,16 +14,15 @@ export const Container = styled.section`
   position: relative;
   margin-top: 100px;
   margin-bottom: 100px;
+  width: 100%;
   h2.intro{
     font-size: 3rem;
   }
   p.intro{
-    width: 25%;
     margin: 25px 0;
   }
   @media ${SCREEN.xl}{
     p.intro{
-      width: 45%;
       margin-bottom: 45px;
     }
   }
@@ -32,19 +31,16 @@ export const Container = styled.section`
     margin-bottom: 0;
 
     p.intro{
-      width: 50%;
       margin: 25px auto 100px auto;
     }
   }
   @media ${SCREEN.sm}{
     p.intro{
-      width: 70%;
       margin-bottom: 25px;
     }
   }
   @media ${SCREEN.xs}{
     p.intro{
-      width: 100%;
     }
   }
 `;
@@ -81,4 +77,34 @@ export const BackgroundIcon = styled.img`
   @media ${SCREEN.lg}{
     width: 200px;
   }
+`;
+
+export const ButtonContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-top: 25px;
+
+  button{
+    margin: 0 10px;
+    a{
+      color: white;
+    }
+
+    &:first-child{
+      margin-left: 0;
+    }
+  }
+
+  @media ${SCREEN.lg}{
+    justify-content: center;
+  }
+  @media ${SCREEN.xxs}{
+    flex-direction: column;
+    button{
+    margin: 15px 0;
+    }
+  }
+
 `;
