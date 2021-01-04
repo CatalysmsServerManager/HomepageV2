@@ -13,7 +13,6 @@
     "serve:ci": "serve ./dist --no-clipboard -s --listen ${PORT:-3000} & wait-on ${HOSTNAME:-'http://localhost'}:${PORT:-3000}",
     "sort": "sort-package-json package.json",
     "start": "webpack-dev-server --env.mode=development --progress",
-    "start:dev": "webpack-dev-server --env development",
     "storybook": "node storybook.setup.js"
   },
   "dependencies": {
