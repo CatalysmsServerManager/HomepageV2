@@ -11,7 +11,6 @@ import landing3 from '../../../images/landing-3.png';
 import landing4 from '../../../images/landing-4.png';
 
 import CsmmIcon from '../../../images/csmm-icon.svg';
-import { Arrow } from '../../arrow';
 
 export const Landing: React.FC = () => (
   <Container>
@@ -24,7 +23,6 @@ export const Landing: React.FC = () => (
         <Button><a href="https://au.csmm.app" rel="noreferrer noopener" target="_blank">AU Region</a></Button>
         <Button><a href="https://us.csmm.app" rel="noreferrer noopener" target="_blank"><s>US Region</s></a> (Instance Full)</Button>
       </ButtonContainer>
-      <Arrow />
     </TextContainer>
     <Window>
       <Carousel
