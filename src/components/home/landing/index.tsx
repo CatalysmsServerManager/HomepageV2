@@ -11,7 +11,6 @@ import landing3 from '../../../images/landing-3.png';
 import landing4 from '../../../images/landing-4.png';
 
 import CsmmIcon from '../../../images/csmm-icon.svg';
-import { Arrow } from '../../arrow';
 
 export const Landing: React.FC = () => (
   <Container>
@@ -20,11 +19,8 @@ export const Landing: React.FC = () => (
       <p>CSMM is a web based server manager for 7 Days to die. Bring your server(s) to the next level with CSMM&apos;s advanced features! Join <strong>hundreds</strong> of other servers in a new generation of server management.</p>
       <BackgroundIcon alt="7 days to Die server manager icon" src={CsmmIcon} />
       <ButtonContainer>
-        <Button><a href="https://eu.csmm.app" rel="noreferrer noopener" target="_blank">EU Region</a></Button>
-        <Button><a href="https://au.csmm.app" rel="noreferrer noopener" target="_blank">AU Region</a></Button>
-        <Button><a href="https://us.csmm.app" rel="noreferrer noopener" target="_blank"><s>US Region</s></a> (Instance Full)</Button>
+        <Button><a href="https://docs.csmm.app/en/CSMM/self-host/installation.html" rel="noreferrer noopener" target="_blank">Install on your server</a></Button>
       </ButtonContainer>
-      <Arrow />
     </TextContainer>
     <Window>
       <Carousel

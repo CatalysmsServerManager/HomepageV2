@@ -1,7 +1,7 @@
 import * as React from 'react';
 import styled from 'styled-components';
 import { SCREEN } from 'lib/enums';
-import { Feature, Info, Landing, Plans, Statistics } from '../components/home';
+import { Info, Landing, Plans, Statistics } from '../components/home';
 
 import { Header, Footer, CookieConsent } from 'lib/components';
 
@@ -20,7 +20,6 @@ export const Home: React.FC = () => (
     <Landing />
     <Body>
       <Info />
-      <Feature />
       <Plans />
       <Statistics />
     </Body>

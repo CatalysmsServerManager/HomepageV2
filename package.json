@@ -13,7 +13,6 @@
     "serve:ci": "serve ./dist --no-clipboard -s --listen ${PORT:-3000} & wait-on ${HOSTNAME:-'http://localhost'}:${PORT:-3000}",
     "sort": "sort-package-json package.json",
     "start": "webpack-dev-server --env.mode=development --progress",
-    "start:dev": "webpack-dev-server --env development",
     "storybook": "node storybook.setup.js"
   },
   "dependencies": {
@@ -33,7 +32,6 @@
     "react-cookie-consent": "^5.1.1",
     "react-dom": "16.11.0",
     "react-helmet": "^6.0.0",
-    "react-markdown": "4.2.2",
     "react-responsive-carousel": "3.1.51",
     "react-router-dom": "5.1.2",
     "react-spring": "^8.0.27",
@@ -41,7 +39,6 @@
     "rxjs": "^6.5.5",
     "styled-components": "^5.0.1",
     "typescript": "3.9.1-rc",
-    "use-sound": "^1.0.2",
     "uuid": "^7.0.2"
   },
   "devDependencies": {

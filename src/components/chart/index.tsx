@@ -10,23 +10,22 @@ export const Chart: React.FC = () => {
 
   async function getData(): Promise<IChartData[]> {
     const regions = ['eu', 'au', 'us'];
-    const chartData: IChartData[] = new Array(49).fill({ createdAt: '0', servers: 0, players: 0 });
+    const chartData: IChartData[] = new Array(48).fill({ createdAt: '0', servers: 0, players: 0 });
     for (const region of regions) {
       let index = 0;
       const res = await fetch(`https://${region}.csmm.app/api/stats`);
       const stats: IStats[] = await res.json();
 
-      for (const { createdAt, servers, players } of stats) {
-        if (index !== 49) {
-          chartData[index] = {
-            createdAt: new Date(createdAt).toISOString().slice(0, 10),
-            servers: chartData[index].servers + servers,
-            players: chartData[index].players + players
-          };
-          index++;
-        }
+      for (const { createdAt, servers, players } of stats.slice(0, 48)) {
+        chartData[index] = {
+          createdAt: new Date(createdAt).toISOString().slice(0, 10),
+          servers: chartData[index].servers + servers,
+          players: chartData[index].players + players
+        };
+        index++;
       }
     }
+
     return chartData;
   }
 

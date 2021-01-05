@@ -38,6 +38,8 @@ export const Header: React.FC = () => {
         </a>
         <OnPageLink className="link" onClick={scrollToPlans}>Plans</OnPageLink>
         <OnPageLink className="link" onClick={scrollToStatistics}>Statistics</OnPageLink>
+        <a href="https://docs.csmm.app" rel="noreferrer noopener" target="_blank">Docs</a>
+        <a href="https://catalysm.net/discord" rel="noreferrer noopener" target="_blank">Support</a>
         <a href="https://www.patreon.com/bePatron?c=1523282" rel="noreferrer noopener" target="_blank"><Button >Premium</Button></a>
       </Nav>
       <Hamburger isOpen={isOpen} toggleOpen={toggleOpen} />
