@@ -49,14 +49,14 @@ export const PlanContainer = styled.div`
   display: grid;
   padding: 0 150px;
   grid-template-columns: auto auto auto;
-  grid-gap: 45px;
-
+  grid-gap: 5%;
+  justify-content: space-evenly;
+  
   @media ${SCREEN.xl}{
     padding: 0;
   }
   @media ${SCREEN.lg}{
     grid-template-columns: auto auto;
-    justify-content: space-evenly;
     grid-gap: 15px;
   }
   @media ${SCREEN.sm}{
@@ -85,15 +85,12 @@ export const ButtonContainer = styled.div`
   justify-content: center;
   width: 100%;
   margin-top: 25px;
+  margin-bottom: 25px;
 
   button{
-    margin: 0 10px;
+    margin: 0 5px 5px;
     a{
       color: white;
-    }
-
-    &:first-child{
-      margin-left: 0;
     }
   }
 
