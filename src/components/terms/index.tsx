@@ -98,6 +98,9 @@ export const Terms: React.FC = () => (
           <li>
             <strong>The right to data portability</strong> - You have the right to request that CSMM transfers the data that we have collected to another organization, or directly to you, under certain conditions.
           </li>
+          <li>
+            <strong>The right to be forgotten</strong> - You have the right to request that CSMM deletes data pertaining to you personally.
+          </li>
         </ul>
 
       </SubChapter>
