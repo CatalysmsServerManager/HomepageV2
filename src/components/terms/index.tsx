@@ -6,7 +6,7 @@ export const Terms: React.FC = () => (
   <Container>
     <Landing>
       <h1>Terms of Service</h1>
-      <p>Last modified on 23 June 2020.</p>
+      <p>Last modified on 25 July 2022.</p>
       <Csmm scale={3} />
     </Landing>
     <ChaptersContainer>
@@ -22,12 +22,6 @@ export const Terms: React.FC = () => (
           </p>
           <p>
             Where visiting the Website, You are granted during Your visit, a limited license to access and make personal use of the Website, the URL, as well as all content included on the Website as offered to You.
-          </p>
-        </SubChapter>
-        <SubChapter>
-          <h3>Platform license (CSMM content solution)</h3>
-          <p>
-            In case where You are being offered access to certain Customer Content, You shall 1. respect the limits within which the Customer Content has been made available to You, and 2. be allowed to use the CSMM Services only in order to get access to the Customer Content as made available to You.
           </p>
         </SubChapter>
         <SubChapter>
@@ -64,7 +58,7 @@ export const Terms: React.FC = () => (
             The license granted shall automatically terminate after the time for which they are granted, if You violate these Terms and/or any of these restrictions, and/or may be terminated for convenience at any time, whichever is first. We reserve all rights of action to seek for compensation and/or injunction.
         </SubChapter>
       </Chapter>
-      <Chapter><h2>Cookie Policy</h2></Chapter>
+      <Chapter><h2>Privacy Policy</h2></Chapter>
       <SubChapter><h3>Topics </h3>
         <ul>
           <li>What data do we collect?</li>
@@ -79,20 +73,21 @@ export const Terms: React.FC = () => (
       <SubChapter>
         <h3>What data do we collect?</h3>
         <ul>
-          <li>Personal identification information (email address, location, etc.)</li>
+          <li>Chat message content (Not stored, used for functional purposes and not for analytics)</li>
           <li>Data collected from games you connected to CSMM&apos;s platform</li>
+          <li>Opaque identifiers for third party platforms including but not limited to Discord and the game(s) you connected to CSMM</li>
         </ul>
       </SubChapter>
       <SubChapter>
         <h3>How do we store your data?</h3>
-      CSMM securely stores your data in secured databases. It will store your cookies for 1 year after your latest visit. Once this period has expired, this data will automatically be removed. Data that is used for your account will remain until your account is manually removed.
+      CSMM securely stores your data in databases. It will store your cookies for 1 year after your latest visit. Once this period has expired, this data will automatically be removed. Data that is used for your account will remain until your account is manually removed.
       </SubChapter>
       <SubChapter>
         <h3>What are your data protection rights?</h3>
         CSMM would like to make sure you are fully aware of all of your data protection rights. Every user is entitled to the following:
         <ul>
           <li>
-            <strong>The right to access</strong> - You have the right to request CSMM a copy of your personal data. We may charge you a small fee for this service.
+            <strong>The right to access</strong> - You have the right to request CSMM a copy of your personal data.
           </li>
           <li>
             <strong>The right to rectification</strong> - You have the right to request that CSMM corrects any information you believe is inaccurate. You also have the right to request to complete information you believe is incomplete.
@@ -112,11 +107,7 @@ export const Terms: React.FC = () => (
         There are a number of different types of cookies, however, our websites uses:
         <ul>
           <li>
-            <strong>Function cookies</strong> - CSMM uses these cookies so that we can recognize you on our website and remember who you are on your next visit.
-          </li>
-
-          <li>
-            <strong>Performance cookies</strong> - These cookies need explicit permission. The cookies analyze and monitor this website. The information helps us to understand how you use our platform.
+            <strong>Functional cookies</strong> - CSMM uses these cookies so that we can recognize you on our website and remember who you are on your next visit.
           </li>
 
           <li>
@@ -129,18 +120,17 @@ export const Terms: React.FC = () => (
         These cookies could be saved on your device:
         <ul>
           <li>Google: Google analytics / google apis / adwords</li>
-          <li>Hotjar: analytics tool for websites and mobile apps. Heatmap Creator</li>
         </ul>
       </SubChapter>
       <SubChapter>
         <h3>How to manage your cookies?</h3>
-        U can switch off cookies, remove or adapt the settings of our cookies. We cannot assure that our website will still work as optimal as intended. Disabling is not recommended. Do you want to know more about cookies, surf to <a href="https://www.allaboutcookies.org" rel="noreferrer noopener">www.allaboutcookies.org</a>. This site gives more information about cookies. Explains in detail how you can remove cookies.
+        You can disable cookies, remove or adapt the settings of our cookies. We cannot assure that our website will still work as optimal as intended. Disabling is not recommended. Do you want to know more about cookies, surf to <a href="https://www.allaboutcookies.org" rel="noreferrer noopener">www.allaboutcookies.org</a>. This site gives more information about cookies. Explains in detail how you can remove cookies.
       </SubChapter>
 
       <Chapter>
         <h2>Contact</h2>
         <p>
-          In case you have any questions or wish to contact us in the context of these terms of service. U can reach us via the options below:
+          In case you have any questions or wish to contact us in the context of these terms of service. You can reach us via the options below:
         </p>
         <ul>
           <li><a href="https://github.com/niekcandaele" rel="noreferrer noopener" target="_blank">Niek Candaele</a></li>
